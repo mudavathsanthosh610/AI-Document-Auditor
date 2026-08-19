@@ -38,7 +38,7 @@ st.sidebar.header("⚙️ Configuration")
 groq_api_key = st.sidebar.text_input(
     "Enter Groq API Key",
     type="password",
-    value=os.environ.get("GROQ_API_KEY", ""),
+    value=st.secrets.get("GROQ_API_KEY", os.environ.get("GROQ_API_KEY", "")),
     help="Get your free API key at https://console.groq.com"
 )
 
