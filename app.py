@@ -48,10 +48,10 @@ groq_api_key = st.sidebar.text_input(
 model_choice = st.sidebar.selectbox(
     "Select LLM Model",
     [
-        "llama-3.1-8b-instant",
-        "llama-3.3-70b-versatile",
-        "gemma2-9b-it",
-        "mixtral-8x7b-32768"
+        "qwen/qwen3.6-27b",
+        "openai/gpt-oss-120b",
+        "openai/gpt-oss-20b",
+        "allam-2-7b"
     ],
     index=0
 )
