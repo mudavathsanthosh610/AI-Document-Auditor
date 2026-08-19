@@ -4,14 +4,14 @@
 
 ### AI-Powered RAG System for Auditing Contracts, Financial Reports & Source Code
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://mudavathsanthosh610-ai-document-auditor-app-ow06yp.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-document-auditor-8rxhdygku9mpmkgivkbrsh.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)](https://python.org)
 [![LangChain](https://img.shields.io/badge/LangChain-Powered-1C3C3C?logo=langchain&logoColor=white)](https://langchain.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > Upload complex documents and get an **evidence-based audit report** that identifies missing information, risks, inconsistencies, and key clauses — powered by RAG (Retrieval-Augmented Generation).
 
-[**🚀 Try Live Demo**](https://mudavathsanthosh610-ai-document-auditor-app-ow06yp.streamlit.app/) · [**🐛 Report Bug**](https://github.com/mudavathsanthosh610/AI-Document-Auditor/issues) · [**💡 Request Feature**](https://github.com/mudavathsanthosh610/AI-Document-Auditor/issues)
+[**🚀 Try Live Demo**](https://ai-document-auditor-8rxhdygku9mpmkgivkbrsh.streamlit.app/) · [**🐛 Report Bug**](https://github.com/mudavathsanthosh610/AI-Document-Auditor/issues) · [**💡 Request Feature**](https://github.com/mudavathsanthosh610/AI-Document-Auditor/issues)
 
 </div>
 
@@ -77,7 +77,7 @@ flowchart LR
 ## 🚀 Quick Start
 
 ### Option 1: Use the Live App (Recommended)
-👉 [**Open AuditLens AI**](https://mudavathsanthosh610-ai-document-auditor-app-ow06yp.streamlit.app/)
+👉 [**Open AuditLens AI**](https://ai-document-auditor-8rxhdygku9mpmkgivkbrsh.streamlit.app/)
 
 No installation needed — just upload a document and audit!
 
