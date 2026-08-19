@@ -35,12 +35,16 @@ st.markdown(
 
 st.sidebar.header("⚙️ Configuration")
 
-groq_api_key = st.sidebar.text_input(
-    "Enter Groq API Key",
-    type="password",
-    value=st.secrets.get("GROQ_API_KEY", os.environ.get("GROQ_API_KEY", "")),
-    help="Get your free API key at https://console.groq.com"
-)
+secret_key = st.secrets.get("GROQ_API_KEY", "")
+if secret_key:
+    groq_api_key = secret_key
+else:
+    groq_api_key = st.sidebar.text_input(
+        "Enter Groq API Key",
+        type="password",
+        value=os.environ.get("GROQ_API_KEY", ""),
+        help="Get your free API key at https://console.groq.com"
+    )
 
 
 # LLM MODEL
