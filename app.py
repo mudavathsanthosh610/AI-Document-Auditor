@@ -3,7 +3,8 @@ import os
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_ollama import OllamaEmbeddings, ChatOllama
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_groq import ChatGroq
 import tempfile
 
 
@@ -34,12 +35,11 @@ st.markdown(
 
 st.sidebar.header("⚙️ Configuration")
 
-ollama_base_url = st.sidebar.text_input(
-    "Enter Ollama Base URL",
-    value=os.environ.get(
-        "OLLAMA_BASE_URL",
-        "http://localhost:11434"
-    )
+groq_api_key = st.sidebar.text_input(
+    "Enter Groq API Key",
+    type="password",
+    value=os.environ.get("GROQ_API_KEY", ""),
+    help="Get your free API key at https://console.groq.com"
 )
 
 
@@ -48,8 +48,10 @@ ollama_base_url = st.sidebar.text_input(
 model_choice = st.sidebar.selectbox(
     "Select LLM Model",
     [
-        "llama3.2:1b",
-        "llama2"
+        "llama-3.1-8b-instant",
+        "llama-3.3-70b-versatile",
+        "gemma2-9b-it",
+        "mixtral-8x7b-32768"
     ],
     index=0
 )
@@ -167,11 +169,11 @@ Do not invent vulnerabilities.
 # MAIN APPLICATION
 
 
-if not ollama_base_url:
+if not groq_api_key:
 
     st.info(
-        "💡 Please ensure Ollama is running and enter the "
-        "Ollama Base URL in the sidebar."
+        "💡 Please enter your Groq API Key in the sidebar. "
+        "Get a free key at [console.groq.com](https://console.groq.com)"
     )
 
 else:
@@ -254,12 +256,11 @@ else:
                 )
 
                 
-                # CREATE EMBEDDINGS
+                # CREATE EMBEDDINGS (HuggingFace - runs locally, no API needed)
                 
 
-                embeddings = OllamaEmbeddings(
-                    base_url=ollama_base_url,
-                    model="nomic-embed-text"
+                embeddings = HuggingFaceEmbeddings(
+                    model_name="all-MiniLM-L6-v2"
                 )
 
                 
@@ -280,13 +281,13 @@ else:
                 )
 
                 
-                # INITIALIZE LLM
+                # INITIALIZE LLM (Groq - cloud hosted, free tier)
                 
-                llm = ChatOllama(
-                    base_url=ollama_base_url,
-                    model=model_choice,
+                llm = ChatGroq(
+                    api_key=groq_api_key,
+                    model_name=model_choice,
                     temperature=0,
-                    num_ctx=context_size
+                    max_tokens=context_size
                 )
 
                 
@@ -404,7 +405,6 @@ Say:
 
 "Not found in the provided document context."
 """
-
                 
                 # SUCCESS MESSAGE
                 
